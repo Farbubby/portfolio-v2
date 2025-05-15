@@ -27,7 +27,7 @@ export default function Project({
         className="bg-gray-900/50 border-gray-700 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(15,244,198,0.15)] hover:border-[#0ff4c6]/50 transition-all duration-300 overflow-hidden group h-full">
         <CardHeader className="p-4 flex flex-row items-center justify-between">
           <CardTitle>
-            <div className="text-xl font-bold bg-gradient-to-r from-teal-400 via-cyan-300 to-sky-400 text-transparent bg-clip-text text-glow-subtle">
+            <div className="text-xl font-bold text-[#0ff4c6] text-glow-subtle">
               {title}
             </div>
           </CardTitle>
@@ -48,7 +48,9 @@ export default function Project({
           {website}
         </CardHeader>
         <CardContent className="p-4">
-          <p className="text-gray-300 text-sm">{description}</p>
+          <p className="text-gray-300 text-sm text-glow-subtle">
+            {description}
+          </p>
         </CardContent>
         <CardFooter className="p-4 flex flex-wrap gap-2">
           {technologies.map((tech, techIndex) => (
@@ -56,7 +58,7 @@ export default function Project({
               key={techIndex}
               variant="outline"
               className="bg-gray-700/50 text-teal-300 border-gray-600 hover:bg-gray-700 transition-all duration-150">
-              {tech}
+              <div className="text-glow-subtle">{tech}</div>
             </Badge>
           ))}
         </CardFooter>

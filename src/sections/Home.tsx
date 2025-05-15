@@ -10,7 +10,7 @@ export default function HomeSection() {
       <div className="text-[#0ff4c6] text-3xl mt-5 text-glow-subtle">
         <AnimatedText text="Software Engineer" delay={1500} />
       </div>
-      <div className="flex flex-row gap-10 mt-10 animate-fade-in">
+      <div className="flex flex-row gap-10 mt-15 animate-fade-in">
         <div className="flex flex-col items-center gap-2">
           <Link href="https://github.com/Farbubby">
             <svg

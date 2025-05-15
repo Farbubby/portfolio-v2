@@ -96,7 +96,9 @@ export default function Navbar() {
                 }}>
                 <div
                   className={
-                    activeItem === active.name ? "text-glow duration-300" : ""
+                    activeItem === active.name
+                      ? "text-glow duration-300"
+                      : "text-glow-subtle duration-300"
                   }>
                   {active.name}
                 </div>
