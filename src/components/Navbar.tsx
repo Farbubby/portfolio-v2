@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
@@ -55,11 +54,11 @@ export default function Navbar() {
   return (
     <nav className="top-0 z-50 w-full bg-[#0a0c14] border-b border-gray-800 px-4 sm:px-6 lg:px-8">
       <div className="flex h-16 items-center justify-between">
-        <Link href="/">
-          <span className="text-[#0ff4c6] text-2xl font-bold text-glow">
+        <button onClick={() => setActiveItem("Home")}>
+          <span className="text-[#0ff4c6] text-2xl font-bold text-glow cursor-pointer">
             Farbubby
           </span>
-        </Link>
+        </button>
         <div className="hidden md:block">
           <div className="flex items-center relative gap-2">
             {navItems.map((name, index) => (
@@ -75,7 +74,12 @@ export default function Navbar() {
                 onClick={() => {
                   setActiveItem(name);
                 }}>
-                {name}
+                <div
+                  className={
+                    activeItem === name ? "text-glow duration-300" : ""
+                  }>
+                  {name}
+                </div>
               </button>
             ))}
             <div

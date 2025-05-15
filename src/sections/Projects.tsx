@@ -24,7 +24,6 @@ export default function Projects() {
         "TailwindCSS",
       ]}
       website=""
-      github=""
     />,
     <Project
       key="2"
@@ -41,7 +40,6 @@ export default function Projects() {
         "Plaid",
       ]}
       website=""
-      github=""
     />,
     <Project
       key="3"
@@ -56,7 +54,6 @@ export default function Projects() {
         "OpenAI",
       ]}
       website=""
-      github=""
     />,
     <Project
       key="4"
@@ -71,7 +68,6 @@ export default function Projects() {
         "MongoDB",
       ]}
       website=""
-      github=""
     />,
     <Project
       key="5"
@@ -86,7 +82,6 @@ export default function Projects() {
         "OpenAI",
       ]}
       website=""
-      github=""
     />,
   ];
 
