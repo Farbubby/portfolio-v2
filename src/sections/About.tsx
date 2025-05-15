@@ -22,17 +22,14 @@ export default function AboutSection() {
           and spending time with my friends and family.
         </p>
       </div>
-      <div className="flex flex-col items-center gap-6">
-        <Image
-          src="/Farbubby.jpg"
-          alt="Farbubby"
-          width={1200}
-          height={1000}
-          className="rounded-xl shadow-lg shadow-[#0ff4c6] sm:w-3/4 md:w-1/2 lg:w-full h-auto object-cover"
-          priority
-        />
-        <div className="text-base text-[#0ff4c6]">Hawaii 🌴</div>
-      </div>
+      <Image
+        src="/Farbubby.jpg"
+        alt="Farbubby"
+        width={325}
+        height={325}
+        className="rounded-xl shadow-lg shadow-[#0ff4c6]"
+        priority
+      />
     </>
   );
 }

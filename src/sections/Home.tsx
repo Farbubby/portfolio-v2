@@ -7,8 +7,8 @@ export default function HomeSection() {
       <div className="text-white text-6xl text-glow-subtle">
         <AnimatedText text="Hi, I'm Farhan!" />
       </div>
-      <div className="text-[#0ff4c6] text-4xl mt-5 text-glow-subtle">
-        <AnimatedText text="A Software Engineer" delay={1500} />
+      <div className="text-[#0ff4c6] text-3xl mt-5 text-glow-subtle">
+        <AnimatedText text="Software Engineer" delay={1500} />
       </div>
       <div className="flex flex-row gap-10 mt-10 animate-fade-in">
         <div className="flex flex-col items-center gap-2">
