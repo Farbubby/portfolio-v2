@@ -137,6 +137,13 @@
   .animate-pulse-subtle {
     animation: pulse-subtle 2s infinite;
   }
+  .text-glow {
+    text-shadow: 0 0 10px #0ff4c6, 0 0 20px rgba(15, 244, 198, 0.7);
+  }
+
+  .text-glow-subtle {
+    text-shadow: 0 0 5px #0ff4c6, 0 0 10px rgba(15, 244, 198, 0.5);
+  }
 }
 
 body {

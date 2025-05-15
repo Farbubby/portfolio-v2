@@ -53,7 +53,7 @@ export default function Navbar() {
   }, [activeItem]);
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-[#0a0c14] border-b border-gray-800 px-4 sm:px-6 lg:px-8">
+    <nav className="top-0 z-50 w-full bg-[#0a0c14] border-b border-gray-800 px-4 sm:px-6 lg:px-8">
       <div className="flex h-16 items-center justify-between">
         <Link href="/">
           <span className="text-[#0ff4c6] text-2xl font-bold">Farbubby</span>
@@ -63,10 +63,12 @@ export default function Navbar() {
             {navItems.map((name, index) => (
               <button
                 key={name}
-                ref={(el) => (navRefs.current[index] = el)}
+                ref={(el) => {
+                  navRefs.current[index] = el;
+                }}
                 className={cn(
-                  "text-gray-300 hover:text-white transition-colors duration-200 py-5 px-4",
-                  activeItem === name && "text-[#0ff4c6]"
+                  "text-gray-300 hover:text-white transition-colors duration-200 py-5 px-4 cursor-pointer",
+                  activeItem === name && "text-[#0ff4c6] hover:text-[#0ff4c6]"
                 )}
                 onClick={() => {
                   setActiveItem(name);
