@@ -87,9 +87,6 @@ export default function ProjectSection() {
 
   return (
     <>
-      <h1 className="text-4xl font-bold mb-16 bg-gradient-to-r from-teal-400 via-cyan-300 to-sky-400 text-transparent bg-clip-text text-glow">
-        Projects
-      </h1>
       <Carousel
         opts={{
           align: "start",

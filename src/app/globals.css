@@ -161,10 +161,10 @@
     text-shadow: 0 0 5px #0ff4c6, 0 0 10px rgba(15, 244, 198, 0.5);
   }
   .animate-fade-in {
-    animation: fade-in 2s ease-in-out;
+    animation: fade-in 1s ease-in-out;
   }
   .animate-fade-out {
-    animation: fade-out 2s ease-in-out;
+    animation: fade-out 1s ease-in-out;
   }
 }
 
