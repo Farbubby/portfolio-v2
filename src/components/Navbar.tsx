@@ -1,14 +1,56 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState("Home");
+  const [indicatorStyle, setIndicatorStyle] = useState({});
+  const navRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Update the indicator position when active item changes
+  useEffect(() => {
+    const activeIndex = navItems.findIndex((name) => name === activeItem);
+    if (activeIndex !== -1 && navRefs.current[activeIndex]) {
+      const activeRef = navRefs.current[activeIndex];
+      if (activeRef) {
+        // Calculate exact width and position
+        const textWidth = activeRef.offsetWidth;
+        const textLeft = activeRef.offsetLeft;
+
+        setIndicatorStyle({
+          width: `${textWidth}px`,
+          transform: `translateX(${textLeft}px)`,
+          transition: "transform 0.3s ease, width 0.3s ease",
+        });
+      }
+    }
+  }, [activeItem]);
+
+  // Handle window resize to reposition the indicator
+  useEffect(() => {
+    const handleResize = () => {
+      const activeIndex = navItems.findIndex((name) => name === activeItem);
+      if (activeIndex !== -1 && navRefs.current[activeIndex]) {
+        const activeRef = navRefs.current[activeIndex];
+        if (activeRef) {
+          const textWidth = activeRef.offsetWidth;
+          const textLeft = activeRef.offsetLeft;
+
+          setIndicatorStyle({
+            width: `${textWidth}px`,
+            transform: `translateX(${textLeft}px)`,
+          });
+        }
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [activeItem]);
 
   return (
     <nav className="fixed top-0 z-50 w-full bg-[#0a0c14] border-b border-gray-800 px-4 sm:px-6 lg:px-8">
@@ -17,27 +59,28 @@ export default function Navbar() {
           <span className="text-[#0ff4c6] text-2xl font-bold">Farbubby</span>
         </Link>
         <div className="hidden md:block">
-          <div className="flex gap-2">
-            {navItems.map((name) => (
-              <button key={name} className={cn("text-gray-300 py-1 px-4")}>
-                <div className="cursor-pointer hover:text-[#0ff4c6] transition-colors duration-200">
-                  {name}
-                </div>
+          <div className="flex items-center relative gap-2">
+            {navItems.map((name, index) => (
+              <button
+                key={name}
+                ref={(el) => (navRefs.current[index] = el)}
+                className={cn(
+                  "text-gray-300 hover:text-white transition-colors duration-200 py-5 px-4",
+                  activeItem === name && "text-[#0ff4c6]"
+                )}
+                onClick={() => {
+                  setActiveItem(name);
+                }}>
+                {name}
               </button>
             ))}
+            <div
+              className="absolute bottom-0 h-0.5 bg-[#0ff4c6] rounded-t-sm shadow-[0_0_8px_#0ff4c6,0_0_15px_rgba(15,244,198,0.6)] animate-pulse-subtle"
+              style={indicatorStyle}
+            />
           </div>
         </div>
-        <div className="flex md:hidden">
-          <button
-            className="text-gray-300 hover:text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? (
-              <X className="block h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Menu className="block h-6 w-6" aria-hidden="true" />
-            )}
-          </button>
-        </div>
+        <div className="flex md:hidden text-white">Hi</div>
       </div>
     </nav>
   );
