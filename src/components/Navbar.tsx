@@ -2,17 +2,25 @@
 
 import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
-const navItems = ["Home", "About", "Projects", "Contact"];
+const navItems = [
+  { name: "Home", link: "/" },
+  { name: "About", link: "/about" },
+  { name: "Projects", link: "/projects" },
+  { name: "Contact", link: "/contact" },
+];
 
 export default function Navbar() {
   const [activeItem, setActiveItem] = useState("Home");
   const [indicatorStyle, setIndicatorStyle] = useState({});
-  const navRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   // Update the indicator position when active item changes
   useEffect(() => {
-    const activeIndex = navItems.findIndex((name) => name === activeItem);
+    const activeIndex = navItems.findIndex(
+      (active) => active.name === activeItem
+    );
     if (activeIndex !== -1 && navRefs.current[activeIndex]) {
       const activeRef = navRefs.current[activeIndex];
       if (activeRef) {
@@ -32,7 +40,9 @@ export default function Navbar() {
   // Handle window resize to reposition the indicator
   useEffect(() => {
     const handleResize = () => {
-      const activeIndex = navItems.findIndex((name) => name === activeItem);
+      const activeIndex = navItems.findIndex(
+        (active) => active.name === activeItem
+      );
       if (activeIndex !== -1 && navRefs.current[activeIndex]) {
         const activeRef = navRefs.current[activeIndex];
         if (activeRef) {
@@ -54,33 +64,35 @@ export default function Navbar() {
   return (
     <nav className="top-0 z-50 w-full bg-[#0a0c14] border-b border-gray-800 px-4 sm:px-6 lg:px-8">
       <div className="flex h-16 items-center justify-between">
-        <button onClick={() => setActiveItem("Home")}>
+        <Link href="/" onClick={() => setActiveItem("Home")}>
           <span className="text-[#0ff4c6] text-2xl font-bold text-glow cursor-pointer">
             Farbubby
           </span>
-        </button>
+        </Link>
         <div className="hidden md:block">
           <div className="flex items-center relative gap-2">
-            {navItems.map((name, index) => (
-              <button
-                key={name}
+            {navItems.map((active, index) => (
+              <Link
+                href={active.link}
+                key={active.name}
                 ref={(el) => {
                   navRefs.current[index] = el;
                 }}
                 className={cn(
                   "text-gray-300 hover:text-white transition-colors duration-200 py-5 px-4 cursor-pointer",
-                  activeItem === name && "text-[#0ff4c6] hover:text-[#0ff4c6]"
+                  activeItem === active.name &&
+                    "text-[#0ff4c6] hover:text-[#0ff4c6]"
                 )}
                 onClick={() => {
-                  setActiveItem(name);
+                  setActiveItem(active.name);
                 }}>
                 <div
                   className={
-                    activeItem === name ? "text-glow duration-300" : ""
+                    activeItem === active.name ? "text-glow duration-300" : ""
                   }>
-                  {name}
+                  {active.name}
                 </div>
-              </button>
+              </Link>
             ))}
             <div
               className="absolute bottom-0 h-0.5 bg-[#0ff4c6] rounded-t-sm shadow-[0_0_8px_#0ff4c6,0_0_15px_rgba(15,244,198,0.6)] animate-pulse-subtle"
