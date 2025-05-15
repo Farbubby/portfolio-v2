@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -11,8 +12,15 @@ const navItems = [
   { name: "Contact", link: "/contact" },
 ];
 
+function capitalizeFirstLetter(word: string) {
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
 export default function Navbar() {
-  const [activeItem, setActiveItem] = useState("Home");
+  const active = usePathname().split("/")[1];
+  const [activeItem, setActiveItem] = useState(
+    active ? capitalizeFirstLetter(active) : "Home"
+  );
   const [indicatorStyle, setIndicatorStyle] = useState({});
   const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
