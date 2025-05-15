@@ -92,34 +92,32 @@ export default function Projects() {
 
   return (
     <>
-      <div className="py-10 px-6 sm:px-16 md:px-20 lg:px-30 xl:px-50 flex flex-col">
-        <h1 className="text-4xl font-bold mb-16 bg-gradient-to-r from-teal-400 via-cyan-300 to-sky-400 text-transparent bg-clip-text">
-          Projects
-        </h1>
-        <Carousel
-          opts={{
-            align: "start",
-            loop: false,
-          }}
-          orientation={"horizontal"}
-          className="w-full">
-          <CarouselContent>
-            {projectList.map((project, index) => {
-              return (
-                <CarouselItem
-                  key={index}
-                  className="lg:basis-1/3 md:basis-1/2 basis-full py-4">
-                  {project}
-                </CarouselItem>
-              );
-            })}
-          </CarouselContent>
-          <div className="flex flex-row justify-between mt-10">
-            <CarouselPrevious />
-            <CarouselNext />
-          </div>
-        </Carousel>
-      </div>
+      <h1 className="text-4xl font-bold mb-16 bg-gradient-to-r from-teal-400 via-cyan-300 to-sky-400 text-transparent bg-clip-text">
+        Projects
+      </h1>
+      <Carousel
+        opts={{
+          align: "start",
+          loop: false,
+        }}
+        orientation={"horizontal"}
+        className="w-full">
+        <CarouselContent>
+          {projectList.map((project, index) => {
+            return (
+              <CarouselItem
+                key={index}
+                className="lg:basis-1/3 md:basis-1/2 basis-full py-4">
+                {project}
+              </CarouselItem>
+            );
+          })}
+        </CarouselContent>
+        <div className="flex flex-row justify-between mt-10">
+          <CarouselPrevious />
+          <CarouselNext />
+        </div>
+      </Carousel>
     </>
   );
 }
