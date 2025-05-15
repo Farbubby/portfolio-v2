@@ -87,7 +87,7 @@ export default function Navbar() {
                   navRefs.current[index] = el;
                 }}
                 className={cn(
-                  "text-gray-300 hover:text-white transition-colors duration-200 py-5 px-4 cursor-pointer",
+                  "hover:text-white transition-colors duration-200 py-5 px-4 cursor-pointer text-glow-subtle",
                   activeItem === active.name &&
                     "text-[#0ff4c6] hover:text-[#0ff4c6]"
                 )}
@@ -95,17 +95,17 @@ export default function Navbar() {
                   setActiveItem(active.name);
                 }}>
                 <div
-                  className={
+                  className={cn(
                     activeItem === active.name
                       ? "text-glow duration-300"
-                      : "text-glow-subtle duration-300"
-                  }>
+                      : "text-gray-300"
+                  )}>
                   {active.name}
                 </div>
               </Link>
             ))}
             <div
-              className="absolute bottom-0 h-0.5 bg-[#0ff4c6] rounded-t-sm shadow-[0_0_8px_#0ff4c6,0_0_15px_rgba(15,244,198,0.6)] animate-pulse-subtle"
+              className="absolute bottom-0 h-0.75 bg-[#0ff4c6] rounded-t-sm shadow-[0_0_8px_#0ff4c6,0_0_15px_rgba(15,244,198,0.6)] animate-pulse-subtle"
               style={indicatorStyle}
             />
           </div>
