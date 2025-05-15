@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export default function Projects() {
+export default function ProjectSection() {
   const projectList = [
     <Project
       key="1"
