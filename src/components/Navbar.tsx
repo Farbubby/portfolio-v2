@@ -56,7 +56,9 @@ export default function Navbar() {
     <nav className="top-0 z-50 w-full bg-[#0a0c14] border-b border-gray-800 px-4 sm:px-6 lg:px-8">
       <div className="flex h-16 items-center justify-between">
         <Link href="/">
-          <span className="text-[#0ff4c6] text-2xl font-bold">Farbubby</span>
+          <span className="text-[#0ff4c6] text-2xl font-bold text-glow">
+            Farbubby
+          </span>
         </Link>
         <div className="hidden md:block">
           <div className="flex items-center relative gap-2">

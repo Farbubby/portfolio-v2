@@ -27,7 +27,7 @@ export default function Project({
     <>
       <Card
         key={title}
-        className="bg-gray-900/50 border-gray-700 backdrop-blur-sm hover:shadow-lg hover:shadow-teal-500/10 transition-all duration-300 overflow-hidden group h-full">
+        className="bg-gray-900/50 border-gray-700 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(15,244,198,0.15)] hover:border-[#0ff4c6]/50 transition-all duration-300 overflow-hidden group h-full">
         <CardHeader className="p-4 flex flex-row items-center justify-between">
           <CardTitle className="text-xl font-bold bg-gradient-to-r from-teal-400 via-cyan-300 to-sky-400 text-transparent bg-clip-text">
             {title}
