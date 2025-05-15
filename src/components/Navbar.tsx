@@ -73,7 +73,7 @@ export default function Navbar() {
     <nav className="fixed top-0 z-50 w-full bg-[#0a0c14] border-b border-gray-800 px-4 sm:px-6 lg:px-8">
       <div className="flex h-16 items-center justify-between">
         <Link href="/" onClick={() => setActiveItem("Home")}>
-          <span className="text-[#0ff4c6] text-2xl font-bold text-glow cursor-pointer">
+          <span className="text-[#0ff4c6] text-2xl font-bold text-glow cursor-pointer hover:text-white duration-200">
             Farbubby
           </span>
         </Link>
