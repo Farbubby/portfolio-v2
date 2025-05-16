@@ -27,7 +27,7 @@ export default function HomeSection() {
           </div>
         </div>
         <div className="flex flex-col items-center gap-2">
-          <Link href="https://github.com/Farbubby">
+          <Link href="https://github.com/Farbubby" target="_blank">
             <svg
               className="fill-[#0ff4c6] w-10 h-10 hover:fill-white duration-200"
               xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,9 @@ export default function HomeSection() {
           </div>
         </div>
         <div className="flex flex-col items-center gap-2">
-          <Link href="https://www.linkedin.com/in/farhan-mahbub/">
+          <Link
+            href="https://www.linkedin.com/in/farhan-mahbub/"
+            target="_blank">
             <svg
               className="fill-[#0ff4c6] w-10 h-10 hover:fill-white duration-200"
               xmlns="http://www.w3.org/2000/svg"
