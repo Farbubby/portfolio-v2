@@ -26,7 +26,7 @@ export default function AboutSection() {
         alt="Farbubby"
         width={325}
         height={325}
-        className="rounded-xl shadow-lg shadow-[#0ff4c6]"
+        className="rounded-xl shadow-lg shadow-[#0ff4c6] w-auto h-auto"
         priority
       />
     </>

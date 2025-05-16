@@ -39,11 +39,8 @@ export default function MobileMenu() {
         </SheetTrigger>
         <SheetContent className="bg-gray-900/50 border-gray-700 backdrop-blur-md hover:shadow-[0_0_20px_rgba(15,244,198,0.15)] hover:border-[#0ff4c6]/50 transition-all duration-300">
           <SheetHeader>
-            <SheetTitle>
-              <div className="text-2xl font-bold text-[#0ff4c6] text-glow-subtle">
-                FM
-              </div>
-            </SheetTitle>
+            <SheetTitle></SheetTitle>
+            <SheetDescription></SheetDescription>
           </SheetHeader>
           <div className="flex flex-col gap-12 items-center justify-center p-4 h-full w-full">
             {navItems.map((item) => (
@@ -51,7 +48,7 @@ export default function MobileMenu() {
                 <Link
                   href={item.link}
                   key={item.name}
-                  className="hover:text-white text-[#0ff4c6] transition-colors text-glow-subtle duration-200 px-4 cursor-pointer">
+                  className="hover:text-white text-gray-300 transition-colors text-glow-subtle duration-200 px-4 cursor-pointer">
                   {item.name}
                 </Link>
               </SheetClose>
