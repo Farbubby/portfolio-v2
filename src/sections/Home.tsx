@@ -12,7 +12,7 @@ export default function HomeSection() {
       </div>
       <div className="flex flex-row gap-10 mt-15 animate-fade-in">
         <div className="flex flex-col items-center gap-2">
-          <Link href="https://github.com/Farbubby">
+          <Link href="/Resume_Farhan_Mahbub.pdf" target="_blank">
             <svg
               className="fill-[#0ff4c6] w-10 h-10 hover:fill-white duration-200"
               xmlns="http://www.w3.org/2000/svg"
