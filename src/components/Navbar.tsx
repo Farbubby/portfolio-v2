@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import MobileMenu from "./Mobile-menu";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -87,7 +88,7 @@ export default function Navbar() {
                   navRefs.current[index] = el;
                 }}
                 className={cn(
-                  "hover:text-white transition-colors duration-200 py-5 px-4 cursor-pointer text-glow-subtle",
+                  "transition-colors duration-200 py-5 px-4 cursor-pointer text-glow-subtle",
                   activeItem === active.name &&
                     "text-[#0ff4c6] hover:text-[#0ff4c6]"
                 )}
@@ -97,8 +98,8 @@ export default function Navbar() {
                 <div
                   className={cn(
                     activeItem === active.name
-                      ? "text-glow duration-300"
-                      : "text-gray-300"
+                      ? "text-glow duration-200"
+                      : "text-gray-300 hover:text-white duration-200"
                   )}>
                   {active.name}
                 </div>
@@ -110,7 +111,9 @@ export default function Navbar() {
             />
           </div>
         </div>
-        <div className="flex md:hidden text-white">Hi</div>
+        <div className="flex md:hidden text-white">
+          <MobileMenu />
+        </div>
       </div>
     </nav>
   );
