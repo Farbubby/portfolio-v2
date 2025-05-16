@@ -72,7 +72,7 @@ function SheetContent({
         {children}
         <SheetPrimitive.Close className="ring-offset-background data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none">
           <svg
-            className="fill-gray-400 hover:fill-white transition-colors"
+            className="fill-gray-400 hover:fill-white transition-colors cursor-pointer"
             width="24"
             height="24"
             xmlns="http://www.w3.org/2000/svg"

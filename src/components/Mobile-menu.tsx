@@ -9,7 +9,9 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
-import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -18,13 +20,22 @@ const navItems = [
   { name: "Contact", link: "/contact" },
 ];
 
+function capitalizeFirstLetter(word: string) {
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
 export default function MobileMenu() {
+  const active = usePathname().split("/")[1];
+  const [activeItem, setActiveItem] = useState(
+    active ? capitalizeFirstLetter(active) : "Home"
+  );
+
   return (
     <>
       <Sheet>
         <SheetTrigger>
           <svg
-            className="w-8 h-8 fill-gray-400 hover:fill-white transition-colors"
+            className="w-8 h-8 fill-gray-400 hover:fill-white transition-colors cursor-pointer"
             clipRule="evenodd"
             fillRule="evenodd"
             strokeLinejoin="round"
@@ -43,14 +54,31 @@ export default function MobileMenu() {
             <SheetDescription></SheetDescription>
           </SheetHeader>
           <div className="flex flex-col gap-12 items-center justify-center p-4 h-full w-full">
-            {navItems.map((item) => (
-              <SheetClose key={item.name}>
-                <Link
-                  href={item.link}
-                  key={item.name}
-                  className="hover:text-white text-gray-300 transition-colors text-glow-subtle duration-200 px-4 cursor-pointer">
-                  {item.name}
-                </Link>
+            {navItems.map((active) => (
+              <SheetClose key={active.name}>
+                <a
+                  href={active.link}
+                  key={active.name}
+                  className={cn(
+                    "transition-colors duration-200 py-5 px-4 cursor-pointer text-glow-subtle flex flex-col gap-2",
+                    activeItem === active.name &&
+                      "text-[#0ff4c6] hover:text-[#0ff4c6]"
+                  )}
+                  onClick={() => {
+                    setActiveItem(active.name);
+                  }}>
+                  <div
+                    className={cn(
+                      activeItem === active.name
+                        ? "text-glow duration-200"
+                        : "text-gray-300 hover:text-white duration-200"
+                    )}>
+                    {active.name}
+                  </div>
+                  {activeItem === active.name && (
+                    <div className="bottom-0 h-0.75 bg-[#0ff4c6] rounded-t-sm shadow-[0_0_8px_#0ff4c6,0_0_15px_rgba(15,244,198,0.6)] animate-pulse-subtle" />
+                  )}
+                </a>
               </SheetClose>
             ))}
           </div>
