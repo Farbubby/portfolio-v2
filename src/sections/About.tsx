@@ -11,10 +11,11 @@ export default function AboutSection() {
           same university.
         </p>
         <p className="text-lg text-[#0ff4c6] w-full text-glow-subtle">
-          I have a strong passion for software engineering, artificial
-          intelligence, and machine learning. My various experiences,
-          coursework, and projects in team settings have allowed me to develop
-          my skills in collaboration, communication, and problem-solving.
+          I am passionate about software engineering, artificial intelligence,
+          and machine learning. My industry experiences, coursework, personal
+          projects, and hackathon experiences have allowed me to develop my
+          skills in collaboration, communication, problem-solving, and building
+          user-centric products.
         </p>
         <p className="text-lg text-[#0ff4c6] w-full text-glow-subtle">
           In my free time, I enjoy traveling, food, cars, video games, anime,
