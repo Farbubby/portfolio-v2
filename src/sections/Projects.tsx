@@ -110,6 +110,13 @@ const projectList = [
     ]}
     website="https://storysensei.org/"
   />,
+  <Project
+    key="8"
+    title="LLM Analysis on Biomedical Q&A"
+    description="A research project that evaluates the performance of 9 GPT and BERT-based large language models on answering biomedical questions through empirical experiments, providing insights into their capabilities and limitations."
+    technologies={["PyTorch", "Python", "Pandas", "HuggingFace"]}
+    website="https://github.com/almond5/CAP5510_Final_Project"
+  />,
 ];
 
 export default function ProjectSection() {
